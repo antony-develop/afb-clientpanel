@@ -1,3 +1,33 @@
-<p>
-  clients works!
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <div class="h2"><i class="fa fa-users"></i> Clients</div>
+  </div>
+  <div class="col-md-6">
+    <div class="h5 text-right text-secondary">Total Owed: {{ totalOwed | currency:"USD":"symbol"}}</div>
+  </div>
+</div>
+<table *ngIf="clients?.length; else noClients" class="table table-striped">
+  <thead class="thead-inverse">
+    <tr>
+      <td>Name</td>
+      <td>Email</td>
+      <td>Balance</td>
+      <td></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let client of clients">
+      <td>{{ client.firstName }} {{ client.lastName }}</td>
+      <td>{{ client.email }}</td>
+      <td>{{ client.balance | currency:"USD":"symbol" }}</td>
+      <td>
+        <a routerLink="client/{{client.id}}" class="btn btn-sm btn-secondary"><i class="fa fa-arrow-circle-o-right"></i> Details</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template # noClients>
+  <hr>
+  <div class="h5">There no clinets in the system</div>
+</ng-template>

@@ -9,6 +9,7 @@ import { ClientService } from 'src/app/services/client.service';
 })
 export class AddClientComponent implements OnInit {
   client: Client
+  disableBalanceOnAdd: boolean = true;
 
   constructor(private clientService: ClientService) { }
 

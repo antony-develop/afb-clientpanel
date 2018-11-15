@@ -33,4 +33,14 @@ export class ClientService {
 
     return this.clients;
    }
+
+   getEmptyClient(): Client {
+    return {
+      fistName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      balance: 0
+    }
+   }
 }

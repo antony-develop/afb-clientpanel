@@ -43,4 +43,8 @@ export class ClientService {
       balance: 0
     }
    }
+
+   addClient(client: Client) {
+     this.clientsCollection.add(client);
+   }
 }

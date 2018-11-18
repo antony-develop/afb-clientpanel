@@ -47,4 +47,21 @@ export class ClientService {
    addClient(client: Client) {
      this.clientsCollection.add(client);
    }
+
+   getClient(id: string): Observable<Client> {
+    this.clientDoc = this.angularFireStore.doc<Client>('clients/' + id);
+    this.client = this.clientDoc.snapshotChanges().pipe(
+      map(actions => {
+        if (actions.payload.exists) {
+          const data = actions.payload.data() as Client;
+          const id = actions.payload.id;
+          return { id, ...data };
+        } else {
+          return null;
+        }        
+      })
+    );
+
+    return this.client;
+   }
 }

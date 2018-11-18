@@ -16,6 +16,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { ClientsComponent } from './components/clients/clients.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { AddClientComponent } from './components/add-client/add-client.component';
+import { ClientDetailComponent } from './components/client-detail/client-detail.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AddClientComponent } from './components/add-client/add-client.component
     NotFoundComponent,
     ClientsComponent,
     SidebarComponent,
-    AddClientComponent
+    AddClientComponent,
+    ClientDetailComponent
   ],
   imports: [
     BrowserModule,

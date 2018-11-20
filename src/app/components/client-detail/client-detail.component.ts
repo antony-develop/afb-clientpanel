@@ -40,4 +40,18 @@ export class ClientDetailComponent implements OnInit {
     this.showBalanceUpdateImput = false;
   }
 
+  onDeleteClick() {
+    if (confirm('Are you sure?')) {
+      this.clientService.deleteClient(this.id)
+        .then(() => {
+          this.flashMessages.show('Client successfully removed', {
+            cssClass: 'alert-success',
+            timeout: 3000
+          })        
+        });
+
+      this.router.navigate(['/']);
+    }    
+  }
+
 }

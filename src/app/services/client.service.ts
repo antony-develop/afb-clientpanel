@@ -69,4 +69,9 @@ export class ClientService {
     this.clientDoc = this.angularFireStore.doc<Client>('clients/'+client.id);
     return this.clientDoc.update(client);
    }
+
+   deleteClient(id: string) {
+     this.clientDoc = this.angularFireStore.doc<Client>('clients/' + id);
+     return this.clientDoc.delete();
+   }
 }

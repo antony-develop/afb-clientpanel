@@ -9,9 +9,9 @@ import { EditClientComponent } from './components/edit-client/edit-client.compon
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
-  { path: 'client/:id', component: ClientDetailComponent },
   { path: 'client/add', component: AddClientComponent },
   { path: 'client/edit/:id', component: EditClientComponent },
+  { path: 'client/:id', component: ClientDetailComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

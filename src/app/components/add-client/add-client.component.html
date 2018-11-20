@@ -19,7 +19,7 @@
           type="text"
           class="form-control"
           name="firstName"
-          [(ngModel)]="firstName"
+          [(ngModel)]="client.firstName"
           #clientFirstName="ngModel"
           [ngClass]="{'is-invalid': clientFirstName.errors && clientFirstName.touched}"
           required
@@ -39,7 +39,7 @@
           type="text"
           class="form-control"
           name="lastName"
-          [(ngModel)]="lastName"
+          [(ngModel)]="client.lastName"
           #clientLastName="ngModel"
           [ngClass]="{'is-invalid': clientLastName.errors && clientLastName.touched}"
           required
@@ -59,7 +59,7 @@
           type="text"
           class="form-control"
           name="email"
-          [(ngModel)]="emial"
+          [(ngModel)]="client.email"
           #clientEmail="ngModel"
           [ngClass]="{'is-invalid': clientEmail.errors && clientEmail.touched}"
           required
@@ -79,7 +79,7 @@
           type="text"
           class="form-control"
           name="phone"
-          [(ngModel)]="phone"
+          [(ngModel)]="client.phone"
           #clientPhone="ngModel"
           [ngClass]="{'is-invalid': clientPhone.errors && clientPhone.touched}"
           required
@@ -99,7 +99,7 @@
           type="number"
           class="form-control"
           name="balance"
-          [(ngModel)]="balance"
+          [(ngModel)]="client.balance"
           #clientBalance="ngModel"
           [disabled]="disableBalanceOnAdd"
         >

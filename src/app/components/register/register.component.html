@@ -8,11 +8,63 @@
         <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
           <div class="form-group">
             <label for="email">Email</label>
-            <input class="form-control" type="text" name="email" required [(ngModel)]="email">
+            <input 
+              class="form-control" 
+              type="text" 
+              name="email" 
+              [(ngModel)]="email"
+              #regEmail="ngModel"
+              [ngClass]="{'is-invalid': regEmail.errors && regEmail.touched}"
+              required
+              pattern="^([a-z0-9_\-\.]+)@([a-z0-9\-\._]+)\.([a-z]{2,5})$"
+            >
+            <div [hidden]="!regEmail.errors?.required" class="invalid-feedback">
+              Email is required
+            </div>
+            <div [hidden]="!regEmail.errors?.pattern" class="invalid-feedback">
+              Email is invalid
+            </div>
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input class="form-control" type="password" name="password" required minlength="6" [(ngModel)]="password">
+            <input 
+              class="form-control" 
+              type="password" 
+              name="password" 
+              [(ngModel)]="password"
+              #regPassword="ngModel"
+              [ngClass]="{'is-invalid': regPassword.errors && regPassword.touched}"
+              required 
+              minlength="6" 
+              (input)="regPasswordConfirm.control.updateValueAndValidity()"
+            >
+            <div [hidden]="!regPassword.errors?.required" class="invalid-feedback">
+              Password is required
+            </div>
+            <div [hidden]="!regPassword.errors?.minlength" class="invalid-feedback">
+              Password must be at least 6 characters
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="passwordConfirm">Confirm password</label>
+            <input 
+              #confPwd="ngModel" 
+              class="form-control" 
+              type="password" 
+              name="passwordConfirm"
+              #regPasswordConfirm="ngModel"
+              ngModel
+              [ngClass]="{'is-invalid': regPasswordConfirm.errors && regPasswordConfirm.touched}"
+              required 
+              minlength="6"
+              appEqualValidator="password" 
+            >
+            <div [hidden]="!regPasswordConfirm.errors?.required" class="invalid-feedback">
+              Password is required
+            </div>
+            <div [hidden]="!regPasswordConfirm.errors?.notEqual || regPasswordConfirm.errors?.required" class="invalid-feedback">
+              Passwords doesn't match
+            </div>
           </div>
           <input [disabled]="!registerForm.form.valid" type="submit" value="Register" class="btn btn-block btn-primary">
         </form>

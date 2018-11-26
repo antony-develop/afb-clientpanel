@@ -9,12 +9,13 @@ import { EditClientComponent } from './components/edit-client/edit-client.compon
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RegisterComponent } from './components/register/register.component';
+import { RegisterGuard } from './guards/register.guard';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'client/add', component: AddClientComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { path: 'register', component: RegisterComponent, canActivate: [RegisterGuard] },
   { path: 'client/edit/:id', component: EditClientComponent, canActivate: [AuthGuard] },
   { path: 'client/:id', component: ClientDetailComponent, canActivate: [AuthGuard] },
   { path: '**', component: NotFoundComponent, canActivate: [AuthGuard] },

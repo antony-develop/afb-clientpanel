@@ -10,12 +10,14 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RegisterComponent } from './components/register/register.component';
 import { RegisterGuard } from './guards/register.guard';
+import { SettingsComponent } from './components/settings/settings.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'client/add', component: AddClientComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent, canActivate: [RegisterGuard] },
+  { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard] },
+  { path: 'client/add', component: AddClientComponent, canActivate: [AuthGuard] },
   { path: 'client/edit/:id', component: EditClientComponent, canActivate: [AuthGuard] },
   { path: 'client/:id', component: ClientDetailComponent, canActivate: [AuthGuard] },
   { path: '**', component: NotFoundComponent, canActivate: [AuthGuard] },

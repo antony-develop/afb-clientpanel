@@ -21,6 +21,7 @@ import { EditClientComponent } from './components/edit-client/edit-client.compon
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { EqualValidatorDirective } from './directives/validators/equal-validator.directive';
+import { SettingsComponent } from './components/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { EqualValidatorDirective } from './directives/validators/equal-validator
     EditClientComponent,
     LoginComponent,
     RegisterComponent,
-    EqualValidatorDirective
+    EqualValidatorDirective,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,6 @@
 
 https://afb-clientpanel.firebaseapp.com
 
-l: johndoe@mail.com, 
+l: johndoe@mail.com
 
 p: johndoe
